@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Dashboard - BankFinance</title>
+    <link rel="stylesheet" type="text/css" href="styles_css.css">
+    <style>
+        nav {
+            display: block;
+            padding: 10px;
+            color: black;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style-type: horizontal;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>User Dashboard</h1>
+        <nav>
+            <a href="finance.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="services.html">SERVICES</a>
+            <a href="user_dashboard.html">USER DASHBOARDS</a>
+            <a href="support.html">SUPPORT AND HELP CENTER</a>
+        </nav>
+    </header>
+
+    <nav>
+    <ul> 
+    <h2>Account Overview</h2>
+    <li><a onclick="showSection('accountmanagement')"> Account Management </a></li>
+    <li><a onclick="showSection('transactionhistory')"> Transaction History </a></li>
+    <li><a onclick="showSection('insurancepolicies')"> Insurance Policies </a></li>
+    </ul>
+    </nav>
+
+    <section id="accountmanagement" style="display: none;">
+        <h2> Edit personal information </h2>
+        <ul style="list-style-type: none; padding: 0;">
+            <li><input type="text" id="editPersonal" placeholder="Edit Name"/></li>
+            <li><input type="text" id="changePass" placeholder="Change Password"/></li>
+            <li><input type="text" id="changePIN" placeholder="Change PIN"/></li>
+            <button onclick="save()">Save</button>
+        </ul>
+    </section>
+
+    <section id="transactionhistory" style="display: none;">
+        <h2> Transaction History </h2>
+        <div id="transactionContent"></div>
+        <h3>Dates:</h3>
+        <ul>
+            <li><a href="#" onclick="showTransactionHistory('2023-05-23')">May 23, 2023</a></li>
+        </ul>
+    </section>
+
+    <section id="insurancepolicies" style="display: none;">
+        <h2>Insurance Policies</h2>
+
+        <article>
+            <h3>Life Insurance</h3>
+            <p><b>Policyholder:</b> Boa Hancock</p>
+            <p><b>Beneficiary:</b> Monkey D. Luffy</p>
+            <p><b>Policy number: BF-00052302</b></p>
+            <p><b>Coverage:</b> ₱2,000,000</p>
+            <p><b>Amount to Pay:</b> ₱2,500 every month</p>
+            <p><b>Payment Due:</b> Every 14th of the month</p>
+        </article>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function showTransactionHistory(date) {
+            var transactionContent = document.getElementById('transactionContent');
+
+            // Call the getTransactionData function to populate the content
+            var sampleContent = getTransactionData(date);
+            transactionContent.innerHTML = sampleContent;
+
+            // Display the transaction history section
+            document.getElementById('transactionhistory').style.display = 'block';
+        }
+
+        function getTransactionData(date) {
+            return `
+                <p>Transactions for ${date}:</p>
+                <ul>
+                    <li>Transaction 1: ₱950.00</li>
+                    <li>Transaction 2: ₱300.00</li>
+                    <li>Transaction 3: ₱899.99</li>
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>
