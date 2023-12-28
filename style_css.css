@@ -12,7 +12,7 @@
     background-size: cover;
     margin-top: 0px;
     height: 135vh;
-}
+}   
 
 .navbar {
     width: 100%;
@@ -277,4 +277,125 @@ ul li a:hover {
 }
 .navbar2 a:hover{
     background: #ff7200;
+}
+
+/* FlipCard CSS */
+.flipcontainer{
+    width: 250px;
+    height: 300px;
+    perspective: 500px;
+    margin-top: 100px;
+    margin-left: 100px;
+    
+}
+.flipcontainer2{
+    width: 250px;
+    height: 300px;
+    perspective: 500px;
+    margin-top: -300px;
+    margin-left: 500px;
+    
+}
+
+.flipcontainer3{
+    width: 250px;
+    height: 300px;
+    perspective: 500px;
+    margin-top: -300px;
+    margin-left: 850px;
+    
+}
+
+.flipcontainer4{
+    width: 250px;
+    height: 300px;
+    perspective: 500px;
+    margin-top: -300px;
+    margin-left: 1200px;
+    
+}
+
+.flipcontainer5{
+    width: 250px;
+    height: 300px;
+    perspective: 500px;
+    margin-top: 100px;
+    margin-left: 900px;
+    
+}
+
+.flipcontainer6{
+    width: 250px;
+    height: 300px;
+    perspective: 500px;
+    margin-top: -300px;
+    margin-left: 500px;
+    
+}
+.flipcontainer:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+    
+}
+.flipcontainer2:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+    
+}
+
+.flipcontainer3:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+    
+}
+
+.flipcontainer4:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+    
+}
+
+.flipcontainer5:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+    
+}
+
+.flipcontainer6:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+    
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+
+
+
+.front, .back{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front{
+    background-image: url(https://i.pinimg.com/736x/66/db/51/66db51b7e39c7b5ec7bd51e652506e6d.jpg);
+    text-align: center;
+}
+
+.back{
+    background-color: #ff7200;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
 }
