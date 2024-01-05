@@ -4,6 +4,20 @@
     <title>User Dashboard - BankFinance</title>
     <link rel="stylesheet" type="text/css" href="styles_css.css">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #cdf8f8;
+        }
+
+        header {
+            background-color: #53677c;
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+        }
+
         nav {
             display: block;
             padding: 10px;
@@ -11,6 +25,13 @@
             margin-bottom: 10px;
             border-radius: 10px;
             cursor: pointer;
+        }
+
+        .navbar2 a {
+            color: white;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 18px;
         }
 
         nav ul {
@@ -23,31 +44,62 @@
             display: inline-block;
             margin-right: 10px;
         }
+
+        h1, h2, h3 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 50px;
+            color: #ff8400;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #53677c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        article {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>User Dashboard</h1>
-        <nav>
-            <a href="finance.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="services.html">SERVICES</a>
-            <a href="user_dashboard.html">USER DASHBOARDS</a>
-            <a href="support.html">SUPPORT AND HELP CENTER</a>
+        <nav class="navbar2">
+            <a href="finance.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="user_dashboard.html">User Dashboard</a>
+            <a href="support.html">Support</a>
         </nav>
     </header>
 
     <nav>
-    <ul> 
-    <h2>Account Overview</h2>
-    <li><a onclick="showSection('accountmanagement')"> Account Management </a></li>
-    <li><a onclick="showSection('transactionhistory')"> Transaction History </a></li>
-    <li><a onclick="showSection('insurancepolicies')"> Insurance Policies </a></li>
-    </ul>
+        <ul> 
+            <h2>Account Overview</h2>
+            <li><a onclick="showSection('accountmanagement')"> Account Management </a></li>
+            <li><a onclick="showSection('transactionhistory')"> Transaction History </a></li>
+            <li><a onclick="showSection('insurancepolicies')"> Insurance Policies </a></li>
+        </ul>
     </nav>
 
-    <section id="accountmanagement" style="display: none;">
+    <section id="accountmanagement">
         <h2> Edit personal information </h2>
         <ul style="list-style-type: none; padding: 0;">
             <li><input type="text" id="editPersonal" placeholder="Edit Name"/></li>
@@ -57,7 +109,7 @@
         </ul>
     </section>
 
-    <section id="transactionhistory" style="display: none;">
+    <section id="transactionhistory">
         <h2> Transaction History </h2>
         <div id="transactionContent"></div>
         <h3>Dates:</h3>
@@ -66,7 +118,7 @@
         </ul>
     </section>
 
-    <section id="insurancepolicies" style="display: none;">
+    <section id="insurancepolicies">
         <h2>Insurance Policies</h2>
 
         <article>

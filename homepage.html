@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage - BankFinance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('bgi.jpg'); /* Add background image */
+      background-size: cover; /* Cover the entire viewport */
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #53677c;
+      color: #fff;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 50px;
+      color: #ff8400;
+    }
+
+    nav {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .navbar2 a {
+      color: white;
+      text-decoration: none;
+      margin: 0 5px;
+      font-size: 18px;
+    }
+
+    .content {
+      margin: 20px;
+    }
+
+    .content-section {
+      display: none;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 30px;
+      margin: 10px;
+      background-color: #050505;
+      color: #fe6303;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>HOMEPAGE</h1>
+
+    <nav class="navbar2">
+      <a href="finance.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="user_dashboard.html">User Dashboard</a>
+      <a href="support.html">Support</a>
+    </nav>
+
+  </header>
+
+  <nav>
+    <button onclick="navigateTo('accountoverview.html')">Account Overview</button>
+    <button onclick="navigateTo('accountmanagement.html')">Account Management</button>
+    <button onclick="navigateTo('transactionpaymentservices.html')">Transaction Payment Services</button>
+    <button onclick="navigateTo('investmentportfolio.html')">Investment and Portfolio Management</button>
+    <button onclick="navigateTo('loancreditservices.html')">Loan and Credit Services</button>
+    <button onclick="navigateTo('insuranceservices.html')">Insurance Services</button>
+    <button onclick="navigateTo('financialplanning.html')">Financial Planning and Advisory</button>
+    <button onclick="navigateTo('helpcenter.html')">Customer Support and Help Center</button>
+    <button onclick="navigateTo('services.html')">Services</button>
+    <button onclick="navigateTo('about.html')">About</button>
+  </nav>
+
+  <div class="content">
+    <!-- Content sections can be added based on the navigation targets -->
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>
