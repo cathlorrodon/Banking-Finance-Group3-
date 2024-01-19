@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BankFinance</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url('bgi.jpg'); 
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-position: center center; 
+        }
+
+        nav {
+            display: block;
+            padding: 10px;
+            color: black;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style-type: horizontal;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="style_css.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">BankFinance</h2> 
+            </div>
+
+            <div class="menu" display: none;>
+                <ul>
+                    <li><a href="#" onclick="navigateTo('finance.html')">HOME</a></li>
+                    <li><a href="#" onclick="navigateTo('abouthome.html')">ABOUT</a></li>
+                    <li><a href="#" onclick="navigateTo('servicehome.html')">SERVICES</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Finance & <br><span>Banking</span> <br>It's Here!</h1>
+            <p class="par">Discover tailored financial solutions at BankFinance.<br> 
+                From personalized investment strategies to seamless online banking, <br> 
+                we're committed to helping you build a secure financial future. <br> 
+                Your success is our priority.</p>
+
+            <div class="form">
+                <h2>Login Here</h2>
+                <!-- Add this form to your HTML -->
+                <form action="login.php" method="post" id="loginForm">
+                    <input type="email" name="lemail" placeholder="Enter Email Here">
+                    <input type="password" name="lpassword" placeholder="Enter Password Here">
+                    <button class="btnn" type="submit">Login</button>
+                </form>
+
+                <p class="link">Don't have an account<br>
+                    <a href="#" onclick="navigateTo('signup.html')">SIGN UP</a>
+                </p>
+                <p class="liw">Log in with</p>
+
+                <div class="icon">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

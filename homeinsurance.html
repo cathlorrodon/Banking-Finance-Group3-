@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Insurance Application - BankFinance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #53677c;
+      color: #fff;
+    }
+
+    h1 {
+      color: #ff8400;
+      margin-top: 30px;
+      margin-bottom: 50px;
+      font-size: 50px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 30px;
+      color: #53677c;
+    }
+
+    nav {
+  color: white;
+  text-decoration: solid;
+  text-align: center;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  
+  }
+
+  nav a {
+  color: white;
+  text-decoration: none;
+  border: 2px solid #fbf8f8;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ff8400;
+  }
+
+    .navbar2 a {
+      color: white;
+      text-decoration: none;
+      margin: 0 5px;
+      font-size: 20px;
+      border: none;
+      background-color: transparent;
+    }
+
+    .content {
+      margin: 20px;
+    }
+
+    .content-section {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px;
+      margin: 10px;
+      background-color: #050505;
+      color: #708caa;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    label {
+      display: block;
+      padding: 12px;
+      border-radius: 1px;
+      background-color: #bddafc;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+
+    p {
+      font-size: 18px;
+      text-align: center;
+    }
+    h3 {
+        font-size: 21px;
+        border: 2px solid #000;
+        padding: 10px;
+        border-radius: 3px;
+        background-color: #5f7ea1;
+    }
+
+    select {
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>HOME INSURANCE</h1>
+
+    <nav class="navbar2">
+      <a href="insuranceservices.html">BACK</a>
+    </nav>
+
+  </header>
+
+  <nav>
+    <a href="lifeinsurance.html">Life Insurance</a>
+    <a href="homeinsurance.html">Home Insurance</a>
+    <a href="autoinsurance.html">Auto Insurance</a>
+  </nav>
+
+  <div class="content">
+    <h2>Home Insurance Application</h2>
+    <p>
+        Home insurance, also commonly called homeowner's insurance, is a type of property insurance that covers a private residence.
+    </p>
+
+    <div class="content-section" id="lifeInsuranceForm">
+      <form id="insuranceForm">
+
+        <h3> Personal Information</h3>
+        <label for="fullName"><b>Full Name: </b><input type="text" id="fullName" name="fullName" required></label>
+        
+
+        <label for="dob"><b>Date of Birth: </b><input type="date" id="dob" name="dob" required></label>
+        
+
+        <label for="gender"> <b>Gender: </b><select id="gender" name="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Non-Binary">Non-Binary</option>
+        </select></label>
+        
+
+        <label for = "maritalstatus"> <b>Marital Status: </b><select id = "maritalstatus" name="maritalstatus" required>
+          <option value = "Single">Single</option>
+          <option value = "Married">Married</option>
+          <option value = "Divorced">Divorced</option>
+          <option value = "Widowed">Widowed</option>
+      </select></label>
+        
+
+        <h3> Contact Information</h3>
+        <label for = "address"><b>Address: </b><input type="text" id="address" name="address" required></label>
+        
+
+        <label for = "phonenumber"><b>Phone Number: </b><input type="text" id="phonenumber" name="phonenumber" required></label>
+        
+
+        <label for = "emailad"><b>Email Address: </b><input type="text" id="emailad" name="emailad" required></label>
+        
+
+        <h3> Property Information </h3>
+        <label for = "propertyad"><b>Property address to be Insured: </b><input type="text" id="propertyad" name="propertyad" required></label>
+        
+
+        <label for = "typesofdwelling"> <b>Types of Home: </b><select id = "typesofdwelling" name="typesofdwelling" required>
+          <option value = "Single-Home">Single-Family Home</option>
+          <option value = "Condo">Condo</option>
+          <option value = "Apartment">Apartment</option>
+      </select></label>
+        
+
+        <label for = "ageofhome"><b>Age of Home: </b><input type="number" id="ageofhome" name="ageofhome" required></label>
+        
+
+
+        <h3>Coverage Details</h3>
+
+        <label for = "typesofinsurance"> <b>Types of Life Insurace: </b> <select id = "typesofinsurance" name="typesofinsurance" required>
+          <option value = "Term">Term</option>
+          <option value = "Whole">Whole</option>
+          <option value = "Universal">Universal</option>
+      </select></label>
+        
+
+        <label for = "policylength"> <b>Policy Term Length: </b><select id = "policylength" name="policylength" required>
+          <option value = "1 year">1 Year</option>
+          <option value = "2 years">2 Years</option>
+          <option value = "3 years">3 Years</option>
+      </select></label>
+        
+
+        <label for="coverageAmount"><b>Desired Coverage Amount:</b><input type="radio" id="onemill" name="coverageAmount" value="1 million" required>
+          <label for="onemill">₱1,000,000</label>
+          <input type="radio" id="twomill" name="coverageAmount" value="2 million" required>
+          <label for="twomill">₱2,000,000</label>
+          <input type="radio" id="threemill" name="coverageAmount" value="3 million" required>
+          <label for="threemill">₱3,000,000</label>
+        </label>
+        
+
+        
+
+        
+
+        <label for="beneficiary"><b>Beneficiary: </b><input type="text" id="beneficiary" name="beneficiary" required></label>
+        
+
+        <button type="button" onclick="submitInsuranceApplication()">Submit Application</button>
+      </form>
+    </div>
+
+    <script>
+        function submitInsuranceApplication() {
+            // Personal Information
+            var fullName = document.getElementById('fullName').value;
+            var dob = document.getElementById('dob').value;
+            var gender = document.getElementById('gender').value;
+            var maritalstatus = document.getElementById('maritalstatus').value;
+    
+            // Contact Information
+            var address = document.getElementById('address').value;
+            var phoneNumber = document.getElementById('phonenumber').value;
+            var emailAddress = document.getElementById('emailad').value;
+    
+            // Coverage Details
+            var typesOfInsurance = document.getElementById('typesofinsurance').value;
+            var policyLength = document.getElementById('policylength').value;
+            var coverageAmount = document.querySelector('input[name="coverageAmount"]:checked').value;
+
+             // Property Information
+            var propertyAddress = document.getElementById('propertyad').value;
+            var typesOfDwelling = document.getElementById('typesofdwelling').value;
+            var ageOfHome = document.getElementById('ageofhome').value;
+    
+            // Beneficiary
+            var beneficiaries = document.getElementById('beneficiary').value;
+    
+            alert('HOME INSURANCE APPLICATION SUBMITTED:\nName: ' + fullName + '\nDOB: ' + dob + '\nGender: ' + gender +
+                '\nMarital Status: ' + maritalstatus + '\nAddress: ' + address + '\nPhone Number: ' + phoneNumber +
+                '\nEmail Address: ' + emailAddress + '\nTypes of Insurance: ' + typesOfInsurance +
+                '\nPolicy Term Length: ' + policyLength + '\nCoverage Amount: ' + coverageAmount + '\nProperty Address: ' + 
+                propertyAddress + '\nTypes of Dwelling: ' + typesOfDwelling +
+                '\nAge of Home: ' + ageOfHome + '\nBeneficiary: ' + beneficiaries);
+        }
+    </script>
+    
+  </div>
+
+</body>
+</html>
