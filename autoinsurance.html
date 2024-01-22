@@ -114,6 +114,14 @@
     select {
       font-size: 15px;
     }
+
+    #resultContainer {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
@@ -143,7 +151,7 @@
     </p>
 
     <div class="content-section" id="lifeInsuranceForm">
-      <form id="insuranceForm">
+      <form id="insuranceForm" action="auto_insurance.php" method="post">
 
         <h3> Personal Information</h3>
         <label for="fullName"><b>Full Name: </b><input type="text" id="fullName" name="fullName" required></label>
@@ -221,6 +229,7 @@
 
         <button type="button" onclick="submitInsuranceApplication()">Submit Application</button>
       </form>
+      <div id="resultContainer"></div>
     </div>
 
     <script>
@@ -255,15 +264,21 @@
         // Beneficiary
         var beneficiaries = document.getElementById('beneficiary').value;
 
-        alert('AUTO INSURANCE APPLICATION SUBMITTED:\nName: ' + fullName + '\nDOB: ' + dob + '\nGender: ' + gender +
-            '\nMarital Status: ' + maritalstatus + '\nAddress: ' + address + '\nPhone Number: ' + phoneNumber +
-            '\nEmail Address: ' + emailAddress + '\nTypes of Insurance: ' + typesOfInsurance +
-            '\nPolicy Term Length: ' + policyLength + '\nCoverage Amount: ' + coverageAmount +
-            '\nDriver\'s License Number: ' + licenseNumber + '\nDate of Issuance: ' + dateOfIssuance +
-            '\nModel and Year of Vehicle: ' + modelAndYear + '\nVehicle Identification Number (VIN): ' + vehicleIdentificationNumber +
-            '\nBeneficiary: ' + beneficiaries);
+        
+            var formData = new FormData(document.getElementById('insuranceForm'));
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'auto_insurance.php', true);
+
+            xhr.onload = function () {
+        if (xhr.status === 200) {
+          document.getElementById('resultContainer').innerHTML = xhr.responseText;
+        }
+      };
+
+      xhr.send(formData);
     }
-</script>
+  </script>
     
   </div>
 

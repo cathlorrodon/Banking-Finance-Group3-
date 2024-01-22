@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<div style="text-align: center; padding: 20px; background-color: #5f7ea1; border-radius: 10px; font-family: Arial, sans-serif; font-size: 20px;">';
         echo '<h2 style="color: #ff8400; font-family: "Arial", sans-serif;">HOME INSURANCE APPLICATION SUBMITTED SUCCESSFULLY!</h2>';
         echo '<p style="color: #333; font-family: "Arial", sans-serif;">Thank you for choosing us!</p>';
-        echo '<a href="lifeinsurance.html" style="text-decoration: none;">';
-        echo '<button style="padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Back to Life Insurance Form</button>';
+        echo '<a href="insuranceservices.html" style="text-decoration: none;">';
+        echo '<button style="padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Back to Insurance Services</button>';
         echo '</a>';
         echo '</div>';
     } else {
