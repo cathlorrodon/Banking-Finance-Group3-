@@ -154,21 +154,50 @@
         }
     
         function sendMessage() {
-            var messageInput = document.getElementById('liveChatMessage');
-            var chatBox = document.getElementById('chatBox');
-            var message = messageInput.value;
-    
-            // Display user's message in the chat box
-            chatBox.innerHTML += '<p>You: ' + message + '</p>';
-            messageInput.value = '';
-    
+        var messageInput = document.getElementById('liveChatMessage');
+        var chatBox = document.getElementById('chatBox');
+        var message = messageInput.value;
+
+        // Display user's message in the chat box
+        chatBox.innerHTML += '<p>You: ' + message + '</p>';
+        messageInput.value = '';
+
+        // Check if the user's message contains a specific word
+        if (message.toLowerCase().includes('i want to talk to an admin to help me')) {
+            setTimeout(function() {
+            var specialResponse = '<p>BankFinance: Sure, an admin will be with you shortly! Thank you for waiting. </p>';
+            chatBox.innerHTML += specialResponse;
+        }, 1000);
+
+
+    } else if (message.toLowerCase().includes('how to change my password')) {
+        setTimeout(function() {
+            var passwordChangeResponse = '<p>BankFinance: Proceed to account management, and you will see the option to change your password. </p>';
+            chatBox.innerHTML += passwordChangeResponse;
+        }, 1000);
+
+        } else if (message.toLowerCase().includes('how to apply for life insurance')) {
+            setTimeout(function() {
+            var passwordChangeResponse = '<p>BankFinance: Go to the Investment Services section and select the option for Life Insurance. Enter your personal details and click on the "Submit Application" button. The outcome of the submitted application will be displayed at the bottom.</p>';
+            chatBox.innerHTML += passwordChangeResponse;
+        }, 1000);
+
+    } else if (message.toLowerCase().includes('what is financial planning')) {
+            setTimeout(function() {
+            var passwordChangeResponse = '<p>BankFinance: Financial planning involves effectively managing your current assets and resources to successfully achieve your desired financial goals and objectives. It requires assessing your current financial status, establishing attainable financial objectives, and creating a thorough strategy to steer your financial choices. If you want, There are lessons on Financial Planning and other related topics available on the Financial Planning tab. </p>';
+            chatBox.innerHTML += passwordChangeResponse;
+        }, 1000);
+
+        
+     } else {
             // Simulate admin response after a short delay
             setTimeout(function () {
-                var adminResponse = '<p>BankFinance: Thank you for reaching out! </p>';
+                var adminResponse = '<p>BankFinance: Thank you for reaching out! We will assigned an admin for you. </p>';
                 chatBox.innerHTML += adminResponse;
             }, 1000); // You can adjust the delay (in milliseconds) based on your preference
         }
-    </script>
+    }
+</script>
     
 
     

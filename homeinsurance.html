@@ -230,50 +230,54 @@
         
 
         <button type="button" onclick="submitInsuranceApplication()">Submit Application</button>
+
+        <div id="resultContainer"></div>
       </form>
-      <div id="resultContainer"></div>
+      
+
     </div>
 
     <script>
-        function submitInsuranceApplication() {
-            // Personal Information
-            var fullName = document.getElementById('fullName').value;
-            var dob = document.getElementById('dob').value;
-            var gender = document.getElementById('gender').value;
-            var maritalstatus = document.getElementById('maritalstatus').value;
-    
-            // Contact Information
-            var address = document.getElementById('address').value;
-            var phoneNumber = document.getElementById('phonenumber').value;
-            var emailAddress = document.getElementById('emailad').value;
-    
-            // Coverage Details
-            var typesOfInsurance = document.getElementById('typesofinsurance').value;
-            var policyLength = document.getElementById('policylength').value;
-            var coverageAmount = document.querySelector('input[name="coverageAmount"]:checked').value;
-
-             // Property Information
-            var propertyAddress = document.getElementById('propertyad').value;
-            var typesOfDwelling = document.getElementById('typesofdwelling').value;
-            var ageOfHome = document.getElementById('ageofhome').value;
-    
-            // Beneficiary
-            var beneficiaries = document.getElementById('beneficiary').value;
-    
-            var formData = new FormData(document.getElementById('insuranceForm'));
-            var xhr = new XMLHttpRequest();
-
-            xhr.open('POST', 'home_insurance.php', true);
-
-            xhr.onload = function () {
-        if (xhr.status === 200) {
-          document.getElementById('resultContainer').innerHTML = xhr.responseText;
-        }
-      };
-
-      xhr.send(formData);
-    }
-    </script>
+      function submitInsuranceApplication() {
+          // Personal Information
+          var fullName = document.getElementById('fullName').value;
+          var dob = document.getElementById('dob').value;
+          var gender = document.getElementById('gender').value;
+          var maritalstatus = document.getElementById('maritalstatus').value;
+  
+          // Contact Information
+          var address = document.getElementById('address').value;
+          var phoneNumber = document.getElementById('phonenumber').value;
+          var emailAddress = document.getElementById('emailad').value;
+  
+          // Coverage Details
+          var typesOfInsurance = document.getElementById('typesofinsurance').value;
+          var policyLength = document.getElementById('policylength').value;
+          var coverageAmount = document.querySelector('input[name="coverageAmount"]:checked').value;
+  
+          // Property Information
+          var propertyAddress = document.getElementById('propertyad').value;
+          var typesOfDwelling = document.getElementById('typesofdwelling').value;
+          var ageOfHome = document.getElementById('ageofhome').value;
+  
+          // Beneficiary
+          var beneficiaries = document.getElementById('beneficiary').value;
+  
+          var formData = new FormData(document.getElementById('insuranceForm'));
+          var xhr = new XMLHttpRequest();
+  
+          xhr.open('POST', 'home_insurance.php', true);
+  
+          xhr.onload = function () {
+              if (xhr.status === 200) {
+                  document.getElementById('resultContainer').innerHTML = xhr.responseText;
+              }
+          };
+  
+          xhr.send(formData);
+      }
+  </script>
+  
     
   </div>
 
