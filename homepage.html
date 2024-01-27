@@ -92,7 +92,7 @@
   <nav>
     <button onclick="navigateTo('accountoverview.php')">Account Overview</button>
     <button onclick="navigateTo('accountmanagement.html')">Account Management</button>
-    <button onclick="navigateTo('transactions.php')">Transaction Payment Services</button>
+    <button onclick="navigateTo('transactions.html')">Transaction Payment Services</button>
     <button onclick="navigateTo('investment.html')">Investment Services</button>
     <button onclick="navigateTo('Loans.html')">Loan and Credit Services</button>
     <button onclick="navigateTo('insuranceservices.html')">Insurance Services</button>
@@ -112,27 +112,12 @@
     }
 
     function logout() {
-    // Add logic for logout (e.g., redirect to the login page)
-    alert('Logged out successfully!');
-
-    // Make an AJAX request to the server to destroy the PHP session
-    fetch('logout.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'action=logout', // Send a parameter to indicate logout action
-    })
-    .then(response => response.text())
-    .then(result => {
-        // You may want to redirect the user to the login page or perform other actions here
-        window.location.href = 'finance.html';
-    })
-    .catch(error => console.error('Error:', error));
-}
-
+      // Add logic for logout (e.g., redirect to the login page)
+      alert('Logged out successfully!');
+      // You may want to redirect the user to the login page or perform other actions here
+      window.location.href = 'finance.html';
+    }
   </script>
 
 </body>
 </html>
-

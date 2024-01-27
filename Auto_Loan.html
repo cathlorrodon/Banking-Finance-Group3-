@@ -4,124 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Loan - BankFinance</title>
+    <title>Auto Loan-BankFinance<</title>
     <style>
-       * {
+        * {
             margin: 0;
             padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
+
             justify-content: center;
             font-family: Arial, sans-serif;
-            background-color: #cdf8f8;
+           background-color: #cdf8f8;
         }
-
         .top {
             margin: auto;
             width: 50%;
         }
 
+
         .button {
-            padding: 10px;
-            margin: 5px;
-            background-color: #050505;
-            color: #708caa;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 15px;
+           padding: 10px;
+      margin: 5px;
+      background-color: #fda101;
+      color: #050505;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            border: 2px solid #000;
-            padding: 10px;
-            border-radius: 10px;
-            background-color: #2b323a;
+        .button:active {
+            transform: scale(0.06);
         }
 
-        .navbar2 a {
-            color: white;
-            text-decoration: none;
-            margin: 0 5px;
-            font-size: 20px;
-            border: none;
-            background-color: transparent;
-        }
+         nav a {
+  color: white;
+  text-decoration: none;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #2b323a;
+  }
+   .navbar2 a {
+      color: white;
+      text-decoration: none;
+      margin: 0 5px;
+      font-size: 20px;
+      border: none;
+      background-color: transparent;
+    }
 
-        header {
-            background-color: #53677c;
-            color: #ff7b00;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 50px;
+    h3 {
+            font-size: 30px;
             color: #ff8400;
-            margin-bottom: 30px;
+            margin-top: 20px;
         }
 
-        button {
-            padding: 10px;
-            margin: 10px;
-            background-color: #050505;
-            color: #708caa;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 15px;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            padding: 12px;
-            border-radius: 1px;
-            background-color: #bddafc;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
-
-        select {
-            font-size: 15px;
-        }
-
-        #resultContainer {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-        }
+     header {
+      text-align: center;
+      padding: 20px;
+      background-color: #53677c;
+      color: #fff;
+    }
+    .one {
+      color: #ff8400;
+      margin-top: 30px;
+      margin-bottom: 50px;
+      font-size: 50px; ;
+    }
     </style>
 </head>
 
 <body>
     <header>
-
-        <h1>Auto & Recreational Loan</h1>
-
+    
+        <h1 class="one">Loans</h1>
+    
         <nav class="navbar2">
-            <a href="Loans.html">BACK</a>
+            <a href="Loans.html">Back</a>
         </nav>
-
+    
+    
     </header>
 
     <div class="top">
@@ -130,12 +94,12 @@
         <h1 style="text-align: center;"> Purchase a car, a new boat, or any other recreational vehicle.
         </h1>
         <br><br><br><br>
-        <h1>Whether you’re making a purchase from a dealership or a private party, talk to BankFinance about your auto loan.</h1>
+        <h1>Whether you’re making a purchase from a dealership or a private party, talk to Banking & Finance about your auto loan.</h1>
         <br><br>
         <h1> What Does a Vehicle Loan Cover? </h1><br><br>
         <p>If you’re looking for car loans, boat loans, or RV loans in Central and Western Kentucky or Southern Indiana, you’ve
-            come to the right place. Vehicle loan is an umbrella term that covers those types of vehicles and watercraft. A vehicle
-            loan also covers:</p><br><br>
+        come to the right place. Vehicle loan is an umbrella term that covers those types of vehicles and watercraft. A vehicle
+        loan also covers:</p><br><br>
 
         <ul>
             <li>Motorcycles</li>
@@ -151,7 +115,7 @@
 
         <h1>Why Get A Vehicle Loan With Field And Main</h1><br><br>
         <p>Field and Main auto loans have competitive interest rates, flexible loan lengths, and easy payment tools. We’ll make
-            quick decisions so you can enjoy the freedom of cruising the open road (or water).</p>
+        quick decisions so you can enjoy the freedom of cruising the open road (or water).</p>
         <br>
         <p><b>Banking & Finance offers auto, boat, and recreational vehicle loans with:</b></p>
         <br>
@@ -163,95 +127,19 @@
             <li>Quick, local decisions</li>
         </ul>
         <br><br>
-
+        
         <h1>Apply For A Vehicle Loan</h1><br><br>
         <p>When you apply for a vehicle loan with Banking & Finance, you get the money you need for your car or recreational vehicle in
-            24 hours or less.</p>
+        24 hours or less.</p>
         <br>
 
         <p>Questions about vehicle loans? Contact us or visit one of our convenient locations in Binan Laguna, to talk
             with a lender. We have 2 convenient locations in San Pedro & Santa Rosa.</p>
         <br><br>
-
+        <button class="button">Apply For a Loan Now!</button>
     </div>
 
 
-    <form id="autoLoanForm" action="Auto_Loan.php" method="post">
-
-        <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" name="fullName" required>
-
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
-
-        <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" required>
-
-        <label for="vehicleType">Vehicle Type:</label>
-        <select id="vehicleType" name="vehicleType" required>
-            <option value="auto">Auto</option>
-            <option value="motorcycle">Motorcycle</option>
-            <option value="RV">Recreational Vehicle (RV)</option>
-        </select>
-
-        <label for="vehicleMake">Vehicle Make/Brand: (ex. Honda)</label>
-        <input type="text" id="vehicleMake" name="vehicleMake" required>
-
-        <label for="model">Vehicle Model: (ex. Click 125)</label>
-        <input type="text" id="model" name="model" required>
-
-        <label for="year">Vehicle Year:</label>
-        <input type="text" id="year" name="year" required>
-
-        <label for="amount">Loan Amount:</label>
-        <input type="text" id="amount" name="amount" required>
-
-        <label for="term">Loan Term (months):</label>
-        <input type="text" id="term" name="term" required>
-
-
-        <label for="status">Employment Status:</label>
-        <select id="status" name="status" required>
-            <option value="employed">Employed</option>
-            <option value="self_employed">Self-Employed</option>
-            <option value="unemployed">Unemployed</option>
-        </select>
-
-        <button type="button" onclick="submitAutoLoanApplication()">Submit Application</button>
-    </form>
-
-    <div id="resultContainer"></div>
-</div>
-
-    <script>
-        function submitAutoLoanApplication() {
-            var fullName = document.getElementById('fullName').value;
-            var email = document.getElementById('email').value;
-            var phone = document.getElementById('phone').value;
-            var vehicleType = document.getElementById('vehicleType').value;
-            var vehicleMake = document.getElementById('vehicleMake').value;
-            var model = document.getElementById('model').value;
-            var year = document.getElementById('year').value;
-            var amount = document.getElementById('amount').value;
-            var term = document.getElementById('term').value;
-            var status = document.getElementById('status').value;
-
-            // Create an XMLHttpRequest object
-            var formData = new FormData(document.getElementById('autoLoanForm'));
-            var xhr = new XMLHttpRequest();
-
-            // Specify the request details
-            xhr.open('POST', 'Auto_Loan.php', true);
-
-            xhr.onload = function () {
-        if (xhr.status === 200) {
-          document.getElementById('resultContainer').innerHTML = xhr.responseText;
-        }
-      };
-
-      xhr.send(formData);
-    }
-    </script>
 
 </body>
 

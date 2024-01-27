@@ -34,7 +34,7 @@ if (isset($_SESSION['user_id'])) {
     }
 } else {
     // Redirect to login page if not logged in
-    header("Location: finance.html");
+    header("Location: login.html");
     exit();
 }
 

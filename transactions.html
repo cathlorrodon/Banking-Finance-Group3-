@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+    <title>Bank Finance Transactions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Lucida Sans Unicode, sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+ul li a:hover {
+    color: orange;
+}
+
+header {
+  background-color: #333;
+  color: #ff7b00;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+nav ul li a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+main {
+  padding: 20px;
+}
+
+
+section {
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-content {
+  text-align: center; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; 
+}
+
+button {
+ margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  background-color: #ff7b00;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
+  border-radius: 3px;
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"],
+select {
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #ff7b00;
+}
+
+
+</style>
+
+<body>
+    <header>
+        <h1>Bank Finance Transactions</h1>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Back to Homepage</a></li>
+                <li><a href="#payment">Payment Services</a></li>
+                <li><a href="#transfer">Fund Transfer</a></li>
+                <li><a href="#bill">Bill Payment</a></li>
+                <li><a href="#history">Transaction History</a></li>
+                <li><a href="#statement">Statement</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="payment">
+            <h2>Payment Services</h2>
+            <div class="service-content">
+                <p>Choose a Payment Service:</p>
+                <button onclick="payWithCreditCard()">Pay with Credit Card</button>
+                <button onclick="payWithDebitCard()">Pay with Debit Card</button>
+                <button onclick="payWithGcash()">Pay with Gcash</button>
+                <button onclick="payWithPaypal()">Pay with Paypal</button>
+            </div>
+        </section>
+
+        <section id="transfer">
+            <h2>Fund Transfer</h2>
+            <div class="service-content">
+                <form onsubmit="showSuccess('Fund Transfer')">	       			
+                    <label for="recipient">Name of Recipient:</label>
+                    <input type="text" id="recipient" name="recipient">
+                    <label for="AccNumber">Account Number:</label>
+                    <input type="text" id="AccNumber" name="AccNumber">
+                    <label for="amount">Enter Amount:</label>
+                    <input type="text" id="amount" name="amount">
+                    <div class="button-container">
+                        <button type="submit">Transfer</button>
+                        <button type="reset"> Clear </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="bill">
+            <h2>Bill Payment</h2>
+            <div class="service-content">
+                <p>Enter bill details:</p>
+                <form action="bank_transaction.php" method="post" onsubmit="showSuccess('Bill Payment'); return false;">
+                    <select id="bill-type" name="bill-type">
+                        <option hidden>Select the Bill Type</option>
+                        <option value="electricity">Electric Utilities</option>
+                        <option value="water">Water Utilities</option>
+                        <option value="internet">Cable/Internet</option>
+                        <option value="telecom">Telecoms</option>
+                    </select>
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" id="fullname" name="fullname">
+                    <label for="billAmount">Amount:</label>
+                    <input type="text" id="billAmount" name="billAmount">
+                    <div class="button-container">
+                        <button type="submit">Pay Bill</button>
+                        <button type="reset"> Clear </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="history">
+            <h2>Transaction History</h2>
+            <div class="service-content">
+			 <form action="bank_transaction.php" method="post" onsubmit="return validateForm()">
+                <table id="transactionTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>	               		
+                    </tbody>
+                </table>
+                <!-- <button onclick="clearTransactionHistory()">Clear History</button> 
+				<button onclick="saveTransactionHistory()">Save History</button>  -->
+            </div>
+        </section>
+
+        <section id="statement">
+            <h2>Statement</h2>
+            <div class="service-content">
+                <button onclick="downloadStatement()">Download your statement</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Bank Finance Transactions</p>
+    </footer>
+    <script>
+        //to store transaction details
+        let transactionHistory = [];
+
+        //load transaction history from local storage
+        if (localStorage.getItem('transactionHistory')) {
+            transactionHistory = JSON.parse(localStorage.getItem('transactionHistory'));
+            updateTransactionTable();
+        }
+
+        function showSuccess(action) {
+            const recipient = document.getElementById('recipient').value.trim();
+            const accNumber = document.getElementById('AccNumber').value.trim();
+            const transferAmount = document.getElementById('amount').value.trim();
+            const selectedBillType = document.getElementById('bill-type').value;
+            const fullName = document.getElementById('fullname').value.trim();
+            const billAmount = document.getElementById('billAmount').value.trim();
+			
+
+            //information for Fund Transfer
+            if (action === 'Fund Transfer' && (!recipient || !accNumber || !transferAmount)) {
+                alert('Please input the required information for Fund Transfer.');
+            } else if (action === 'Bill Payment') {
+                //information for Bill Payment
+                if (selectedBillType === "Select the Bill Type" || !fullName || !billAmount || isNaN(billAmount) || parseFloat(billAmount) <= 0) {
+                    alert('Please input the required information for Bill Payment.');
+                } else {
+                    //display success message for Bill Payment
+                    const currentDate = new Date().toLocaleDateString(); 					
+                    alert(`You have successfully paid the bill.\nBill Type: ${getBillTypeName(selectedBillType)}\nAmount: ₱${billAmount}`);
+                       //bill payment details to transaction history
+                        transactionHistory.push({
+                        date: currentDate,
+                        description: `Bill Payment - ${getBillTypeName(selectedBillType)}`,
+                        amount: billAmount,
+                    });
+                    clearForm();
+                }
+            }    else if (action === 'Fund Transfer') {
+                   //display success message for Fund Transfer
+                     const currentDate = new Date().toLocaleDateString();
+                     alert(`You have successfully transferred funds to ${recipient}.\nAmount: ₱${transferAmount}`);
+                        //transfer details to transaction history
+                        transactionHistory.push({
+                        date: currentDate,
+                        description: 'Fund Transfer',
+                        amount: transferAmount,
+                   });
+                   clearForm();
+            }
+
+            //refresh the transaction history table
+            updateTransactionTable();
+            //save transaction history to local storage
+            localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+        }
+
+        function payWithCreditCard() {
+            //for paying with Credit Card
+            alert('Processing payment with Credit Card.');
+        }
+
+        function payWithDebitCard() {
+            //for paying with Debit Card
+            alert('Processing payment with Debit Card.');
+        }
+
+        function payWithGcash() {
+            //for paying with Gcash
+            alert('Processing payment with Gcash.');
+        }
+
+        function payWithPaypal() {
+            //for paying with Paypal
+            alert('Processing payment with Paypal.');
+        }
+
+        function clearForm() {
+            document.getElementById('recipient').value = '';
+            document.getElementById('AccNumber').value = '';
+            document.getElementById('amount').value = '';
+            document.getElementById('bill-type').value = '';
+            document.getElementById('fullname').value = '';
+            document.getElementById('billAmount').value = '';
+        }
+		
+        function updateTransactionTable() {
+            const tableBody = document.querySelector('#transactionTable tbody');
+            //clear existing rows
+            tableBody.innerHTML = '';
+            //add rows from transaction history
+            transactionHistory.forEach(transaction => {
+                const row = tableBody.insertRow();
+                const dateCell = row.insertCell(0);
+                const descriptionCell = row.insertCell(1);
+                const amountCell = row.insertCell(2);
+                dateCell.textContent = transaction.date
+                descriptionCell.textContent = transaction.description;
+				amountCell.textContent = `₱${parseFloat(transaction.amount).toFixed(2)}`; 
+				const formattedAmount = parseFloat(transaction.amount).toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+                amountCell.textContent = `₱${formattedAmount}`;
+	
+            });
+        }
+		
+        function showSuccess(action) {
+            const recipient = document.getElementById('recipient').value.trim();
+            const accNumber = document.getElementById('AccNumber').value.trim();
+            const transferAmount = document.getElementById('amount').value.trim();
+            const selectedBillType = document.getElementById('bill-type').value;
+            const fullName = document.getElementById('fullname').value.trim();
+            const billAmount = document.getElementById('billAmount').value.trim();
+
+            // Information for Fund Transfer
+            if (action === 'Fund Transfer' && (!recipient || !accNumber || !transferAmount)) {
+                alert('Please input the required information for Fund Transfer.');
+            } else if (action === 'Bill Payment') {
+                // Information for Bill Payment
+                if (selectedBillType === "Select the Bill Type" || !fullName || !billAmount || isNaN(billAmount) || parseFloat(billAmount) <= 0) {
+                    alert('Please input the required information for Bill Payment.');
+                } else {
+                    // Display success message for Bill Payment
+                    const currentDate = new Date().toLocaleDateString();
+                    alert(`You have successfully paid the bill.\nBill Type: ${getBillTypeName(selectedBillType)}\nAmount: ₱${billAmount}`);
+                    // Bill payment details to transaction history
+                    const newTransaction = {
+                        date: currentDate,
+                        description: `Bill Payment - ${getBillTypeName(selectedBillType)}`,
+                        amount: billAmount,
+                    };
+                    transactionHistory.push(newTransaction);
+                    updateTransactionTable();
+
+                    // Save transaction to the database
+                    saveTransactionToDatabase(newTransaction);
+                    clearForm();
+                }
+            } else if (action === 'Fund Transfer') {
+                // Display success message for Fund Transfer
+                const currentDate = new Date().toLocaleDateString();
+                alert(`You have successfully transferred funds to ${recipient}.\nAmount: ₱${transferAmount}`);
+                // Transfer details to transaction history
+                const newTransaction = {
+                    date: currentDate,
+                    description: 'Fund Transfer',
+                    amount: transferAmount,
+                };
+                transactionHistory.push(newTransaction);
+                updateTransactionTable();
+
+                // Save transaction to the database
+                saveTransactionToDatabase(newTransaction);
+                clearForm();
+            }
+
+            // Refresh the transaction history table
+            updateTransactionTable();
+            // Save transaction history to local storage
+            localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+        }
+
+        function saveTransactionToDatabase(transaction) {
+            const formData = new FormData();
+            formData.append("date", transaction.date);
+            formData.append("description", transaction.description);
+            formData.append("amount", transaction.amount);
+
+            fetch("bank_transaction.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.error('Error:', error));
+        }
+
+		
+        function clearTransactionHistory() {
+            //clear transaction history 
+            transactionHistory = [];
+            //refresh the transaction history
+            updateTransactionTable();
+            //clear history in local storage
+            localStorage.removeItem('transactionHistory');
+        }
+
+        function getBillTypeName(billType) {
+            switch (billType) {
+                case 'electricity':
+                    return 'Electric Utilities';
+                case 'water':
+                    return 'Water Utilities';
+                case 'internet':
+                    return 'Cable/Internet';
+                case 'telecom':
+                    return 'Telecoms';
+                default:
+                    return '';
+            }
+        }
+
+        function downloadStatement() {
+            //generate a simple statement content
+            const statementContent = generateStatementContent();
+
+            //create a Blob containing the statement content
+            const blob = new Blob([statementContent], { type: 'text/plain' });
+
+            //create a download link
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = 'Bank_Statement.txt';
+
+            //append the link to the body
+            document.body.appendChild(downloadLink);
+
+            //trigger a click on the link to start the download
+            downloadLink.click();
+
+            //remove the link from the body
+            document.body.removeChild(downloadLink);
+        }
+
+         function generateStatementContent() {
+            //generate a statement content based on transaction history
+            let statementContent = 'Transaction History\n\n';
+
+            transactionHistory.forEach((transaction, index) => {
+            const formattedAmount = parseFloat(transaction.amount).toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+
+            statementContent += `${index + 1}. Date: ${transaction.date}\n`;
+            statementContent += `   Description: ${transaction.description}\n`;
+            statementContent += `   Amount: ₱${formattedAmount}\n\n`;
+    });
+
+    return statementContent;
+}
+ </script>	
+</body>
+</html>

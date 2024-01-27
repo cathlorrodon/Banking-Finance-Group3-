@@ -25,7 +25,6 @@ if (isset($_SESSION['accountNumber'])) {
         $_SESSION['email'] = $row["email"];
         $_SESSION['contact'] = $row["contact"];
         $_SESSION['age'] = $row["age"];
-        $_SESSION['balance'] = $row["balance"];
         $_SESSION['accountNumber'] = $row["accountNumber"];
     } else {
         echo "User not found";
@@ -148,7 +147,6 @@ $conn->close();
             <li><strong>Email:</strong> <?php echo $_SESSION['email']; ?></li>
             <li><strong>Contact Number:</strong> <?php echo $_SESSION['contact']; ?></li>
             <li><strong>Age:</strong> <?php echo $_SESSION['age']; ?></li>
-            <li><strong>Balance:</strong> <?php echo $_SESSION['balance']; ?></li>
         </center>
       </ul>
 
@@ -156,7 +154,7 @@ $conn->close();
             <!-- Add the "Delete Account" button without changing the style -->
             <div class="profile-container" style="text-align: center;">
                 <!-- Add onclick event to redirect to delete_account.html -->
-                <!-- <button id="deleteAccountBtn" style="padding: 10px; margin: 5px; background-color: #fda101; color: #050505; border: none; border-radius: 5px; cursor: pointer;" onclick="window.location.href='delete_account.html'">Delete Account</button> -->
+                <button id="deleteAccountBtn" style="padding: 10px; margin: 5px; background-color: #fda101; color: #050505; border: none; border-radius: 5px; cursor: pointer;" onclick="window.location.href='delete_account.html'">Delete Account</button>
             </div>
         </div>
     </div>

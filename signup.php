@@ -20,12 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // $accountNumber = generateUniqueAccountNumber($conn);
+    $accountNumber = generateUniqueAccountNumber($conn);
 
     // SQL query to insert user data into the 'users' table
-    $sql = "INSERT INTO users (name, age, contact, email, password) 
-    VALUES ('$name', '$age', '$contact', '$email', '$userPassword')";
-
+    $sql = "INSERT INTO users (name, age, contact, email, password, accountNumber) 
+            VALUES ('$name', '$age', '$contact', '$email', '$userPassword', '$accountNumber')";
 
     if ($conn->query($sql) === TRUE) {
         // Signup successful
@@ -38,6 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<pre>';
         var_dump($_SESSION);
         echo '</pre>';
+
+        // Redirect to accountoverview.html
+        header("Location: finance.html");
+        exit();
     } else {
         // Signup failed
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -46,14 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 
-// function generateUniqueAccountNumber($conn) {
-//     do {
-//         // Generate a unique account number using uniqid
-//         $accountNumber = uniqid();
-//         $query = "SELECT * FROM users WHERE accountNumber = '$accountNumber'";
-//         $result = $conn->query($query);
-//     } while ($result->num_rows > 0);
+function generateUniqueAccountNumber($conn) {
+    // Customize the format or length of the account number as needed
+    do {
+        $accountNumber = rand(1000000000, 9999999999);
+        $query = "SELECT * FROM users WHERE accountNumber = '$accountNumber'";
+        $result = $conn->query($query);
+    } while ($result->num_rows > 0);
 
-//     return $accountNumber;
-// }
+    return $accountNumber;
+}
 ?>
