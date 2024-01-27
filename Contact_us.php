@@ -1,3 +1,44 @@
+<?php
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "database_bankfinance";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Values from the form
+    $full_name = $_POST["name"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+    $investmentType = $_POST["investmentType"];
+
+    
+    $sql = "INSERT INTO contact_us (full_name, email, message, investmentType) VALUES (?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssss", $full_name, $email, $message, $investmentType);
+
+
+    if ($stmt->execute()) {
+        $success_message = "Form is successfully submitted";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+// Close connection
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,18 +151,35 @@
         <h2 style="text-align: center; font-size: 50px;"> Contact Us
         </h2> <br><br><br><br>
 
-        <form action="">
+        <?php
+        if (isset($success_message)) {
+        echo "<script>alert('$success_message');</script>";
+        } elseif (isset($error_message)) {
+        echo "<p>$error_message</p>";
+        }
+        ?>
+
+
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label for="">Full Name: </label> <br> 
-            <input type="text" id="Input" size="50" >
+            <input type="text" name="name" id="Input" size="50" >
             <br> <br>
             <label for="">Email:  </label> <br>
-            <input type="text" id="Input" required>
+            <input type="text" name="email" id="Input" required>
             <br>
             <br>
             <label for="">Message:  </label> <br><br>
             
-            <textarea name="" id="" cols="84" rows="10"></textarea>
+            <textarea name="message" id="" cols="84" rows="10"></textarea>
             <br><br>
+
+            <label for="investmentType">Select Investment Type:</label>
+            <select id="investmentType" name="investmentType" required>
+            <option value="education">Educational Planning</option>
+            <option value="stocks">Stocks</option>
+            </select>
+            <br><br>
+
             <input type="submit" id="button" value="Submit">
             <br>
             

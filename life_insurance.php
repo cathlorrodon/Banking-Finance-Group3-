@@ -1,5 +1,10 @@
 <?php
-include("db_connection.php");
+ $servername = "127.0.0.1";
+    $username = "root";
+    $password = "";
+    $database = "database_bankfinance";
+
+    $conn = new mysqli($servername, $username, $password, $database);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -41,3 +46,4 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+
