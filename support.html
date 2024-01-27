@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Support and Help Center - BankFinance</title>
+    <link rel="stylesheet" type="text/css" href="styles_css.css">
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #cdf8f8;
+        }
+
+        header {
+            background-color: #53677c;
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+        }
+
+        nav {
+            display: block;
+            padding: 10px;
+            color: black;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .navbar2 a {
+            color: white;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 18px;
+        }
+
+        nav ul {
+            list-style-type: horizontal;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        #liveChatMessage {
+            margin-right: 10px;
+        }
+
+        #chatBox {
+            margin-top: 10px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 50px;
+            color: #ff8400;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 30px;
+            color: #ff8400;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #53677c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Support and Help Center</h1>
+
+        <nav class="navbar2">
+            <a href="homepage.html">Back to Homepage</a>
+        </nav>
+    </header>
+
+    <nav>
+        <center>
+        <ul> 
+            <li><b><a onclick="showSection('faqs')"> FAQs </a></b></li>
+            <li><b><a onclick="showSection('contactus')">Contact Us </a></b></li>
+            <li><b><a onclick="showSection('livechat')"> Live Chat </a></b></li>
+        </ul>
+        </center>
+    </nav>
+
+    <section id="faqs" style="display: none;">
+        <center>
+        <h2> Frequently Asked Questions </h2>
+        <h3>Question 1: What is the difference between a savings account and a checking account?</h3>
+        <p> A savings account is designed for accumulating and saving money, often earning interest.<br>
+            A checking account, on the other hand, is more transactional, used for daily expenses with features like checks and
+            debit cards. <br>
+            Savings accounts typically have higher interest rates, while checking accounts offer more flexibility for
+            withdrawals. </p>
+        
+        <h3>Question 2: How can I improve my credit score?</h3>
+        <p>To improve your credit score, focus on paying bills on time, reducing outstanding debt, and maintaining a mix of
+            different types of credit.<br>
+            Regularly check your credit report for errors and address any discrepancies.</p>
+        
+        <h3>Question 3: How can I start saving money?</h3>
+        <p>Begin by setting aside a small amount regularly. Consider opening a savings account, and make a budget to track your
+            expenses and find areas to save.</p>
+        </center>
+        </section>
+
+    <section id="contactus" style="display: none;">
+        <h2>Contact Us</h2>
+        <p>If you have more questions, please message us on bank@finance.com</p>
+        <p>Or message our admin on <a href="#" onclick="showSection('livechat')">Live Chat</a>.</p>
+    </section>
+
+    <section id="livechat" style="display: none;">
+        <h2>Live Chat</h2>
+        <p>Message one of our admin right now.</p>
+        <p>Send a message on the box and an admin will be with you shortly.</p>
+        <input type="text" id="liveChatMessage" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+        <div id="chatBox"></div>
+    </section>
+
+    
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    
+        function sendMessage() {
+        var messageInput = document.getElementById('liveChatMessage');
+        var chatBox = document.getElementById('chatBox');
+        var message = messageInput.value;
+
+        // Display user's message in the chat box
+        chatBox.innerHTML += '<p>You: ' + message + '</p>';
+        messageInput.value = '';
+
+        // Check if the user's message contains a specific word
+        if (message.toLowerCase().includes('i want to talk to an admin to help me')) {
+            setTimeout(function() {
+            var specialResponse = '<p>BankFinance: Sure, an admin will be with you shortly! Thank you for waiting. </p>';
+            chatBox.innerHTML += specialResponse;
+        }, 1000);
+
+
+    } else if (message.toLowerCase().includes('how to change my password')) {
+        setTimeout(function() {
+            var passwordChangeResponse = '<p>BankFinance: Proceed to account management, and you will see the option to change your password. </p>';
+            chatBox.innerHTML += passwordChangeResponse;
+        }, 1000);
+
+        } else if (message.toLowerCase().includes('how to apply for life insurance')) {
+            setTimeout(function() {
+            var passwordChangeResponse = '<p>BankFinance: Go to the Investment Services section and select the option for Life Insurance. Enter your personal details and click on the "Submit Application" button. The outcome of the submitted application will be displayed at the bottom.</p>';
+            chatBox.innerHTML += passwordChangeResponse;
+        }, 1000);
+
+    } else if (message.toLowerCase().includes('what is financial planning')) {
+            setTimeout(function() {
+            var passwordChangeResponse = '<p>BankFinance: Financial planning involves effectively managing your current assets and resources to successfully achieve your desired financial goals and objectives. It requires assessing your current financial status, establishing attainable financial objectives, and creating a thorough strategy to steer your financial choices. If you want, There are lessons on Financial Planning and other related topics available on the Financial Planning tab. </p>';
+            chatBox.innerHTML += passwordChangeResponse;
+        }, 1000);
+
+        
+     } else {
+            // Simulate admin response after a short delay
+            setTimeout(function () {
+                var adminResponse = '<p>BankFinance: Thank you for reaching out! We will assigned an admin for you. </p>';
+                chatBox.innerHTML += adminResponse;
+            }, 1000); // You can adjust the delay (in milliseconds) based on your preference
+        }
+    }
+</script>
+    
+
+    
+</body>
+</html>
